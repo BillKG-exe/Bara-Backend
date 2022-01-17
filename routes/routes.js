@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
 
+const maxAge = 3 * 24 * 60 * 60 * 1000 // 3 days
+
 router.post('/register', async (req, res, next) => {
     try{
         const salt = await bcrypt.genSalt(10)
